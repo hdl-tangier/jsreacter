@@ -199,6 +199,12 @@ window.CreateNewMeetupForm = React.createClass
     event.preventDefault()
     meetup = @state.meetup
 
+    @validateTitle()
+    @forceUpdate()
+
+    for own key of meetup
+      return if @state.warnings[key]
+
     $.ajax
       url: "/meetups.json"
       type: "POST"
