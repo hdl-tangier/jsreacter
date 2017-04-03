@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: "pages#welcome"
-  get 'meetups/new'
+  resources :meetups, only: %w(new create)
 end
